@@ -36,7 +36,6 @@ public class ProductoServiceImpl implements ProductoServiceInf{
        }catch (Exception e){
            throw new ServiceException(e.toString());
        }
-
     }
 
     @Override
@@ -51,14 +50,11 @@ public class ProductoServiceImpl implements ProductoServiceInf{
     @Override
     public void delete(Integer id) throws ServiceException {
         this.productoRepository.deleteById(id);
-
     }
 
     @Override
     public ProductoDto save(ProductoDto productoDto) throws ServiceException {
-
         ProductoEntity productoEntity= this.getProductoEntity(productoDto);
-
         return this.getProductoDto(this.productoRepository.save(productoEntity));
     }
     private ProductoEntity getProductoEntity(ProductoDto productoDto) {
